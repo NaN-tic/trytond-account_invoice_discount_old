@@ -8,7 +8,10 @@ class InvoiceLine(OSV):
     _name = 'account.invoice.line'
     _description = __doc__
     
-    discount = fields.Numeric('Discount %', digits=(16, 2))
+    discount = fields.Numeric('Discount %', digits=(16, 2),
+                              states={
+                                  'invisible': "type != 'line'",
+                                      })
     amount = fields.Function('get_amount', type='numeric', string='Amount', \
         digits="(16, globals().get('_parent_invoice') and " \
                     "globals().get('_parent_invoice').currency_digits or " \
