@@ -25,11 +25,11 @@ this repository contains the full copyright notices and license terms. -->
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="/form/field[@name=&quot;unit&quot;]"
-                        position="after">
+                        expr="/form/label[@name=&quot;unit&quot;]"
+                        position="before">
+                        <newline/>
 					    <label name="discount"/>
                         <field name="discount"/>
-					    <newline/>
                     </xpath>
                 </data>
                 ]]>
