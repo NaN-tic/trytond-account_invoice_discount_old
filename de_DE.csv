@@ -1,0 +1,2 @@
+type,name,res_id,src,value,fuzzy
+field,"account.invoice.line,discount",0,Discount %,Rabatt %,0
