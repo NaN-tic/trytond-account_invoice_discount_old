@@ -5,7 +5,7 @@ this repository contains the full copyright notices and license terms. -->
     <data>
         <record model="ir.ui.view" id="bls_account_invoice_discount_view">
             <field name="model">account.invoice</field>
-			<field name="inherit" ref="account_invoice.invoice_view_form"/>
+            <field name="inherit" ref="account_invoice.invoice_view_form"/>
             <field name="arch" type="xml">
                 <![CDATA[
                 <data>
@@ -18,25 +18,25 @@ this repository contains the full copyright notices and license terms. -->
                 ]]>
             </field>
         </record>
-		<record model="ir.ui.view" id="bls_account_invoice_line_discount_view">
+        <record model="ir.ui.view" id="bls_account_invoice_line_discount_view">
             <field name="model">account.invoice.line</field>
-			<field name="inherit" ref="account_invoice.invoice_line_view_form"/>
+            <field name="inherit" ref="account_invoice.invoice_line_view_form"/>
             <field name="arch" type="xml">
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="/form/field[@name=&quot;unit&quot;]"
-                        position="after">
-					    <label name="discount"/>
+                        expr="/form/label[@name=&quot;unit&quot;]"
+                        position="before">
+                        <newline/>
+                        <label name="discount"/>
                         <field name="discount"/>
-					    <newline/>
                     </xpath>
                 </data>
                 ]]>
             </field>
         </record>
-		<record model="ir.action.report" id="account_invoice.report_invoice">
-            <field name="name">Invoice</field> 
+        <record model="ir.action.report" id="account_invoice.report_invoice">
+            <field name="name">Invoice</field>
             <field name="report_name">account.invoice</field>
             <field name="model">account.invoice</field>
             <field name="report">account_invoice_discount/invoice.odt</field>

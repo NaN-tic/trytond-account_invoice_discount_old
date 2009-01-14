@@ -7,8 +7,11 @@ class InvoiceLine(OSV):
     'Invoice Line'
     _name = 'account.invoice.line'
     _description = __doc__
-    
-    discount = fields.Numeric('Discount %', digits=(16, 2))
+
+    discount = fields.Numeric('Discount %', digits=(16, 2),
+                              states={
+                                  'invisible': "type != 'line'",
+                                      })
     amount = fields.Function('get_amount', type='numeric', string='Amount', \
         digits="(16, globals().get('_parent_invoice') and " \
                     "globals().get('_parent_invoice').currency_digits or " \
@@ -17,10 +20,10 @@ class InvoiceLine(OSV):
             'invisible': "type not in ('line', 'subtotal')", \
         }, on_change_with=['type', 'quantity', 'unit_price', \
             '_parent_invoice.currency', 'currency', 'discount'])
-    
+
     def default_discount(self, cursor, user, context=None):
         return 0.0
-    
+
     def on_change_with_amount(self, cursor, user, ids, vals, context=None):
         currency_obj = self.pool.get('currency.currency')
         if vals.get('type') == 'line':
@@ -38,7 +41,7 @@ class InvoiceLine(OSV):
                 return currency_obj.round(cursor, user, currency, amount)
             return amount
         return Decimal('0.0')
-    
+
     def get_amount(self, cursor, user, ids, name, arg, context=None):
         currency_obj = self.pool.get('currency.currency')
         res = {}
@@ -66,7 +69,7 @@ class InvoiceLine(OSV):
             else:
                 res[line.id] = Decimal('0.0')
         return res
-    
+
     def _credit(self, cursor, user, line, context=None):
         '''
         Return values to credit line.
@@ -78,12 +81,12 @@ class InvoiceLine(OSV):
 
         for field in ('unit', 'product', 'account'):
             res[field] = line[field].id
-            
+
         res['taxes'] = []
         for tax in line.taxes:
             res['taxes'].append(('add', tax.id))
         return res
-    
+
     def _compute_taxes(self, cursor, user, line, context=None):
         tax_obj = self.pool.get('account.tax')
         currency_obj = self.pool.get('currency.currency')
@@ -123,7 +126,7 @@ InvoiceLine()
 class Invoice(OSV):
     'Invoice'
     _name = 'account.invoice'
-    
+
     def _compute_taxes(self, cursor, user, invoice, context=None):
         tax_obj = self.pool.get('account.tax')
         currency_obj = self.pool.get('currency.currency')
@@ -152,7 +155,7 @@ class Invoice(OSV):
                     res[key]['base'] += val['base']
                     res[key]['amount'] += val['amount']
         return res
-    
+
     def _on_change_lines_taxes(self, cursor, user, ids, vals, context=None):
         currency_obj = self.pool.get('currency.currency')
         tax_obj = self.pool.get('account.tax')
@@ -177,7 +180,7 @@ class Invoice(OSV):
                 if line.get('type', 'line') != 'line':
                     continue
                 res['untaxed_amount'] += line.get('amount', Decimal('0.0'))
-                
+
                 price = line.get('unit_price') - line.get('unit_price') * line.get('discount') / Decimal('100')
                 for tax in tax_obj.compute(cursor, user, line.get('taxes', []),
                         price,
@@ -242,5 +245,5 @@ class Invoice(OSV):
             res['total_amount'] = currency_obj.round(cursor, user, currency,
                     res['total_amount'])
         return res
-    
+
 Invoice()
