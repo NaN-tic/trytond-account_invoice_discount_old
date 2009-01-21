@@ -25,7 +25,7 @@ this repository contains the full copyright notices and license terms. -->
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="/form/label[@name=&quot;unit&quot;]"
+                        expr="/form/notebook/page[@id=&quot;general&quot;]/label[@name=&quot;unit&quot;]"
                         position="before">
                         <newline/>
                         <label name="discount"/>
