@@ -38,7 +38,7 @@ this repository contains the full copyright notices and license terms. -->
 
         <record model="ir.action.report" id="account_invoice.report_invoice">
             <field name="active" eval="False"/>
- 		</record>
+        </record>
         <record model="ir.action.report" id="report_invoice_discount">
             <field name="name">Invoice</field>
             <field name="report_name">account.invoice</field>
