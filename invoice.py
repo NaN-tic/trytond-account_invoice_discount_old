@@ -27,14 +27,15 @@ class InvoiceLine(OSV):
     def on_change_with_amount(self, cursor, user, ids, vals, context=None):
         currency_obj = self.pool.get('currency.currency')
         if vals.get('type') == 'line':
-            currency = vals.get('_parent_invoice.currency', vals.get('currency'))
+            currency = vals.get('_parent_invoice.currency',
+                                vals.get('currency'))
             if isinstance(currency, (int, long)):
                 currency = currency_obj.browse(cursor, user, currency, \
                         context=context)
             discount = Decimal(str(vals.get('quantity') or Decimal('0.0'))) * \
                          (vals.get('unit_price') or Decimal('0.0')) * \
-                         (((vals.get('discount')* Decimal('0.01'))) or \
-                          Decimal('0.0'))
+                         ((((vals.get('discount') or Decimal('0.0'))* \
+                            Decimal('0.01'))) or Decimal('0.0'))
             amount = Decimal(str(vals.get('quantity') or '0.0')) * \
                          (vals.get('unit_price') or Decimal('0.0')) - discount
             if currency:
