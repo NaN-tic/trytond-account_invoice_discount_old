@@ -1,18 +1,18 @@
 Installing trytond_account_invoice_discount
-==============================================
+===========================================
 
 Prerequisites
 -------------
 
  * Python 2.4 or later (http://www.python.org/)
- * trytond 0.0.x (http://www.tryton.org/)
- * trytond_stock (http://www.tryton.org/)
+ * trytond 1.1.x or later (http://www.tryton.org/)
+ * trytond_account_invoice (http://www.tryton.org/)
 
 Installation
 ------------
 
-Once you've downloaded and unpacked the trytond_account_statement source release, enter the
-directory where the archive was unpacked, and run:
+Once you've downloaded and unpacked the trytond_account_invoice_discount
+source release, enter the directory where the archive was unpacked, and run:
 
     python setup.py install
 
@@ -27,4 +27,4 @@ documentation:
   http://docs.python.org/inst/inst.html
 
 To use without installation, extract the archive into ``trytond/modules`` with
-the directory name account_statement.
+the directory name account_invoice_discount.
