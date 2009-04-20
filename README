@@ -1,7 +1,7 @@
 trytond_account_invoice_discount
-===================================
+================================
 
-The account_statement module of the Tryton application platform.
+Adds a discount field on invoice of Tryton.
 See __tryton__.py
 
 Installing
@@ -34,3 +34,7 @@ See COPYRIGHT
 For more information please visit the Tryton web site:
 
   http://www.tryton.org/
+
+For more information about this module please contact virtual things:
+
+  http://www.virtual-things.biz/
