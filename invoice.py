@@ -2,24 +2,22 @@
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, fields
 from decimal import Decimal
+import copy
 
 class InvoiceLine(ModelSQL, ModelView):
     'Invoice Line'
     _name = 'account.invoice.line'
-    _description = __doc__
 
     discount = fields.Numeric('Discount %', digits=(16, 2),
                               states={
                                   'invisible': "type != 'line'",
                                       })
-    amount = fields.Function('get_amount', type='numeric', string='Amount', \
-        digits="(16, globals().get('_parent_invoice') and " \
-                    "globals().get('_parent_invoice').currency_digits or " \
-                    "globals()['currency_digits'])", \
-        states={
-            'invisible': "type not in ('line', 'subtotal')", \
-        }, on_change_with=['type', 'quantity', 'unit_price', \
-            '_parent_invoice.currency', 'currency', 'discount'])
+    def __init__(self):
+        super(InvoiceLine, self).__init__()
+        self.amount = copy.copy(self.amount)
+        if self.amount.on_change_with:
+            self.amount.on_change_with.extend(['discount'])
+        self._reset_columns()
 
     def default_discount(self, cursor, user, context=None):
         return 0.0
