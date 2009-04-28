@@ -5,7 +5,6 @@ from decimal import Decimal
 import copy
 
 class InvoiceLine(ModelSQL, ModelView):
-    'Invoice Line'
     _name = 'account.invoice.line'
 
     discount = fields.Numeric('Discount %', digits=(16, 2),
@@ -90,7 +89,6 @@ InvoiceLine()
 
 
 class Invoice(ModelSQL, ModelView):
-    'Invoice'
     _name = 'account.invoice'
 
     def _compute_taxes(self, cursor, user, invoice, context=None):
