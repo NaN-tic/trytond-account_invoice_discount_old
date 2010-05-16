@@ -12,6 +12,19 @@ See INSTALL
 Support
 -------
 
+For more information or if you encounter any problems with this module,
+please contact the programmers at
+
+  virtual things
+  --------------
+  website: http://www.virtual-things.biz/
+  email: info@virtual-things.biz
+
+  mbsolutions
+  -----------
+  website: http://mbsolutions.selfip.biz/
+  email: info@mbsolutions.selfip.biz
+
 If you encounter any problems with Tryton, please don't hesitate to ask
 questions on the Tryton bug tracker, mailing list, wiki or IRC channel:
 
@@ -31,10 +44,3 @@ Copyright
 See COPYRIGHT
 
 
-For more information please visit the Tryton web site:
-
-  http://www.tryton.org/
-
-For more information about this module please contact virtual things:
-
-  http://www.virtual-things.biz/
