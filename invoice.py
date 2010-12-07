@@ -7,10 +7,10 @@ import copy
 class InvoiceLine(ModelSQL, ModelView):
     _name = 'account.invoice.line'
 
-    discount = fields.Numeric('Discount %', digits=(16, 2),
-                              states={
-                                  'invisible': "type != 'line'",
-                                      })
+    discount = fields.Numeric('Discount %',
+            digits=(16, Eval('currency_digits', 2)), states={
+                'invisible': "type != 'line'",
+            })
     def __init__(self):
         super(InvoiceLine, self).__init__()
         self.amount = copy.copy(self.amount)
@@ -29,9 +29,9 @@ class InvoiceLine(ModelSQL, ModelView):
         return super(InvoiceLine, self).on_change_with_amount(cursor, user,
                                                 ids, vals, context=context)
 
-    def get_amount(self, cursor, user, ids, name, arg, context=None):
+    def get_amount(self, cursor, user, ids, name, context=None):
         currency_obj = self.pool.get('currency.currency')
-        res = super(InvoiceLine, self).get_amount(cursor, user, ids, name, arg,
+        res = super(InvoiceLine, self).get_amount(cursor, user, ids, name,
                                                   context=context)
         for line in self.browse(cursor, user, ids, context=context):
             if line.type == 'line':
