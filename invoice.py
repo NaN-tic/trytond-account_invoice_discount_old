@@ -21,13 +21,13 @@ class InvoiceLine(ModelSQL, ModelView):
     def default_discount(self, cursor, user, context=None):
         return 0.0
 
-    def on_change_with_amount(self, cursor, user, ids, vals, context=None):
+    def on_change_with_amount(self, cursor, user, vals, context=None):
         if vals.get('type') == 'line' and vals.get('discount'):
             vals = vals.copy()
             vals['unit_price'] = (vals.get('unit_price') -
                 vals.get('unit_price') * vals.get('discount') * Decimal('0.01'))
         return super(InvoiceLine, self).on_change_with_amount(cursor, user,
-                                                ids, vals, context=context)
+                                                vals, context=context)
 
     def get_amount(self, cursor, user, ids, name, context=None):
         currency_obj = self.pool.get('currency.currency')
@@ -120,7 +120,7 @@ class Invoice(ModelSQL, ModelView):
                     res[key]['amount'] += val['amount']
         return res
 
-    def _on_change_lines_taxes(self, cursor, user, ids, vals, context=None):
+    def _on_change_lines_taxes(self, cursor, user, vals, context=None):
         currency_obj = self.pool.get('currency.currency')
         tax_obj = self.pool.get('account.tax')
         if context is None:
