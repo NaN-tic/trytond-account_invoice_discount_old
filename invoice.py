@@ -1,6 +1,7 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, fields
+from trytond.pyson import Not, Equal, Eval
 from decimal import Decimal
 import copy
 
@@ -9,7 +10,7 @@ class InvoiceLine(ModelSQL, ModelView):
 
     discount = fields.Numeric('Discount %',
             digits=(16, Eval('currency_digits', 2)), states={
-                'invisible': "type != 'line'",
+                'invisible': Not(Equal(Eval('type'), 'line')),
             })
     def __init__(self):
         super(InvoiceLine, self).__init__()
