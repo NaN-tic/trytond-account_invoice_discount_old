@@ -4,7 +4,7 @@
 {
     'name': 'Account Invoice Discount',
     'name_de_DE': 'Fakturierung Rabatt',
-    'version': '1.7.1',
+    'version': '1.7.2',
     'author': 'virtual things',
     'email': 'info@virtual-things.biz',
     'website': 'http://www.virtual-things.biz/',
