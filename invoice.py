@@ -6,6 +6,7 @@ from decimal import Decimal
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Not, Equal, Eval
 from trytond.transaction import Transaction
+from trytond.pool import Pool
 
 
 class InvoiceLine(ModelSQL, ModelView):
@@ -33,7 +34,7 @@ class InvoiceLine(ModelSQL, ModelView):
         return super(InvoiceLine, self).on_change_with_amount(vals)
 
     def get_amount(self, ids, name):
-        currency_obj = self.pool.get('currency.currency')
+        currency_obj = Pool().get('currency.currency')
         res = super(InvoiceLine, self).get_amount(ids, name)
         for line in self.browse(ids):
             if line.type == 'line':
@@ -54,9 +55,9 @@ class InvoiceLine(ModelSQL, ModelView):
         return res
 
     def _compute_taxes(self, line):
-        tax_obj = self.pool.get('account.tax')
-        currency_obj = self.pool.get('currency.currency')
-        invoice_obj = self.pool.get('account.invoice')
+        tax_obj = Pool().get('account.tax')
+        currency_obj = Pool().get('currency.currency')
+        invoice_obj = Pool().get('account.invoice')
 
         context = {}
         context.update(invoice_obj.get_tax_context(line.invoice))
@@ -90,8 +91,8 @@ class Invoice(ModelSQL, ModelView):
     _name = 'account.invoice'
 
     def _compute_taxes(self, invoice):
-        tax_obj = self.pool.get('account.tax')
-        currency_obj = self.pool.get('currency.currency')
+        tax_obj = Pool().get('account.tax')
+        currency_obj = Pool().get('currency.currency')
 
         context = {}
         context.update(self.get_tax_context(invoice))
@@ -115,8 +116,8 @@ class Invoice(ModelSQL, ModelView):
         return res
 
     def _on_change_lines_taxes(self, vals):
-        currency_obj = self.pool.get('currency.currency')
-        tax_obj = self.pool.get('account.tax')
+        currency_obj = Pool().get('currency.currency')
+        tax_obj = Pool().get('account.tax')
         res = {
             'untaxed_amount': Decimal('0.0'),
             'tax_amount': Decimal('0.0'),
