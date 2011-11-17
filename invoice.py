@@ -54,9 +54,10 @@ class InvoiceLine(ModelSQL, ModelView):
         return res
 
     def _compute_taxes(self, line):
-        tax_obj = Pool().get('account.tax')
-        currency_obj = Pool().get('currency.currency')
-        invoice_obj = Pool().get('account.invoice')
+        pool = Pool()
+        tax_obj = pool.get('account.tax')
+        currency_obj = pool.get('currency.currency')
+        invoice_obj = pool.get('account.invoice')
 
         context = {}
         context.update(invoice_obj.get_tax_context(line.invoice))
