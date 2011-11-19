@@ -1,0 +1,135 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:account.invoice.line,discount:0"
+msgid "Discount %"
+msgstr "Rabatt %"
+
+msgctxt "model:ir.action,name:report_invoice_discount"
+msgid "Invoice"
+msgstr "Rechnung"
+
+msgctxt "odt:account.invoice:0"
+msgid "%"
+msgstr "%"
+
+msgctxt "odt:account.invoice:0"
+msgid "Amount"
+msgstr "Betrag"
+
+msgctxt "odt:account.invoice:0"
+msgid "Base"
+msgstr "Netto"
+
+msgctxt "odt:account.invoice:0"
+msgid "Credit Note N°:"
+msgstr "Gutschrift Nr.:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Date"
+msgstr "Fällig am"
+
+msgctxt "odt:account.invoice:0"
+msgid "Date:"
+msgstr "Datum:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Description"
+msgstr "Beschreibung"
+
+msgctxt "odt:account.invoice:0"
+msgid "Description:"
+msgstr "Beschreibung:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Discount"
+msgstr "Rabatt"
+
+msgctxt "odt:account.invoice:0"
+msgid "Draft Credit Note"
+msgstr "Gutschrift (Entwurf)"
+
+msgctxt "odt:account.invoice:0"
+msgid "Draft Invoice"
+msgstr "Rechnung (Entwurf)"
+
+msgctxt "odt:account.invoice:0"
+msgid "Draft Supplier Credit Note"
+msgstr "Gutschrift (Entwurf)"
+
+msgctxt "odt:account.invoice:0"
+msgid "Draft Supplier Invoice"
+msgstr "Rechnung (Entwurf)"
+
+msgctxt "odt:account.invoice:0"
+msgid "E-Mail:"
+msgstr "E-Mail:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Invoice N°:"
+msgstr "Rechnung Nr.:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Payment Term"
+msgstr "Zahlungsbedingung"
+
+msgctxt "odt:account.invoice:0"
+msgid "Phone:"
+msgstr "Telefon:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Pro forma Credit Note"
+msgstr "Gutschrift Pro Forma"
+
+msgctxt "odt:account.invoice:0"
+msgid "Pro forma Invoice"
+msgstr "Rechnung Pro Forma"
+
+msgctxt "odt:account.invoice:0"
+msgid "Pro forma Supplier Credit Note"
+msgstr "Gutschrift Pro Forma"
+
+msgctxt "odt:account.invoice:0"
+msgid "Pro forma Supplier Invoice"
+msgstr "Rechnung Pro Forma"
+
+msgctxt "odt:account.invoice:0"
+msgid "Quantity"
+msgstr "Anzahl"
+
+msgctxt "odt:account.invoice:0"
+msgid "Supplier Credit Note N°:"
+msgstr "Gutschrift Nr.:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Supplier Invoice N°:"
+msgstr "Rechnung Nr.:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Tax"
+msgstr "Steuer"
+
+msgctxt "odt:account.invoice:0"
+msgid "Taxes"
+msgstr "Steuern"
+
+msgctxt "odt:account.invoice:0"
+msgid "Taxes:"
+msgstr "Steuern:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Total (excl. taxes):"
+msgstr "Netto:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Total:"
+msgstr "Gesamt:"
+
+msgctxt "odt:account.invoice:0"
+msgid "Unit Price"
+msgstr "Einzelpreis"
+
+msgctxt "odt:account.invoice:0"
+msgid "VAT:"
+msgstr "USt-ID-Nr:"
