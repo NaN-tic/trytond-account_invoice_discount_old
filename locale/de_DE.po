@@ -131,5 +131,9 @@ msgid "Unit Price"
 msgstr "Einzelpreis"
 
 msgctxt "odt:account.invoice:0"
+msgid "VAT Number:"
+msgstr "USt-ID-Nr.:"
+
+msgctxt "odt:account.invoice:0"
 msgid "VAT:"
 msgstr "USt-ID-Nr:"
