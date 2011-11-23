@@ -14,7 +14,7 @@ class InvoiceLine(ModelSQL, ModelView):
     discount = fields.Numeric('Discount %',
             digits=(16, Eval('currency_digits', 2)), states={
                 'invisible': Not(Equal(Eval('type'), 'line')),
-            })
+            }, depends=['currency_digits', 'type'])
     def __init__(self):
         super(InvoiceLine, self).__init__()
         self.amount = copy.copy(self.amount)
