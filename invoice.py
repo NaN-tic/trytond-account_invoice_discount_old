@@ -75,9 +75,10 @@ class InvoiceLine(ModelSQL, ModelView):
                     base_code_id = tax['tax'].credit_note_base_code.id
                     amount = tax['base'] * tax['tax'].credit_note_base_sign
                 if base_code_id:
-                    amount = currency_obj.compute(
-                            line.invoice.currency, amount,
-                            line.invoice.company.currency)
+                    with Transaction().set_context(
+                            date=line.invoice.currency_date):
+                        amount = currency_obj.compute(line.invoice.currency.id,
+                            amount, line.invoice.company.currency.id)
                     res.append({
                         'code': base_code_id,
                         'amount': amount,
