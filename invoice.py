@@ -131,11 +131,16 @@ class Invoice(ModelSQL, ModelView):
         computed_taxes = {}
         if vals.get('lines'):
             for line in vals['lines']:
-                if line.get('type', 'line') != 'line':
+                if line.get('type', 'line') != 'line' or \
+                   line.get('unit_price') == None:
                     continue
-                res['untaxed_amount'] += line.get('amount', Decimal('0.0'))
+                res['untaxed_amount'] += line.get('amount') or 0
 
-                price = line.get('unit_price') - line.get('unit_price') * line.get('discount') / Decimal('100')
+                discount = line.get('discount')
+                if isinstance(discount, float):
+                    discount = Decimal(str(line.get('discount')))
+                price = line.get('unit_price') - line.get('unit_price') \
+                    * discount / Decimal('100')
                 for tax in tax_obj.compute(line.get('taxes', []), price,
                         line.get('quantity', 0.0)):
                     key, val = self._compute_tax(tax,

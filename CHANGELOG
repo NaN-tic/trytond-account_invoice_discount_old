@@ -1,3 +1,4 @@
+* _on_change_lines_taxes: Force to Decimal discount field when is float + Continue when unit_price is None
 * Account Invoice Line in Account Invoice form is invoice_line_view_tree_sequence view
 
 Version 2.1.2 - 2012-01-26
