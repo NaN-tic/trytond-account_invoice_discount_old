@@ -2,6 +2,7 @@
 #this repository contains the full copyright notices and license terms.
 {
     'name': 'Account Invoice Discount',
+    'name_ca_ES': 'Descomptes en factures',
     'name_de_DE': 'Fakturierung Rabatt',
     'version': '2.1.3',
     'author': 'virtual things',
@@ -10,6 +11,10 @@
     'description': '''
     - Define discounts for invoice lines
     - Adds field discount in report invoice
+''',
+    'description_ca_ES': '''
+    - Defineix descomptes per a línies de factura.
+    - Afegeix camp de descompte a la factura impresa.
 ''',
     'description_de_DE': '''
     - Ermöglicht die Eingabe von Rabatten pro Rechnungszeile
@@ -22,6 +27,7 @@
         'invoice.xml'
         ],
     'translation': [
+        'locale/ca_ES.po',
         'locale/de_DE.po'
     ],
 }

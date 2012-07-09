@@ -1,0 +1,139 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:account.invoice.line,discount:"
+msgid "Discount %"
+msgstr "Descompte %"
+
+msgctxt "model:ir.action,name:report_invoice_discount"
+msgid "Invoice"
+msgstr "Factura"
+
+msgctxt "odt:account.invoice:"
+msgid "%"
+msgstr "%"
+
+msgctxt "odt:account.invoice:"
+msgid "Amount"
+msgstr "Quantitat"
+
+msgctxt "odt:account.invoice:"
+msgid "Base"
+msgstr "Base"
+
+msgctxt "odt:account.invoice:"
+msgid "Credit Note N°:"
+msgstr "Nº d'abonament:"
+
+msgctxt "odt:account.invoice:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "odt:account.invoice:"
+msgid "Date:"
+msgstr "Data:"
+
+msgctxt "odt:account.invoice:"
+msgid "Description"
+msgstr "Descripció"
+
+msgctxt "odt:account.invoice:"
+msgid "Description:"
+msgstr "Descripció:"
+
+msgctxt "odt:account.invoice:"
+msgid "Discount"
+msgstr "Descompte"
+
+msgctxt "odt:account.invoice:"
+msgid "Draft Credit Note"
+msgstr "Abonament esborrany"
+
+msgctxt "odt:account.invoice:"
+msgid "Draft Invoice"
+msgstr "Factura esborrany"
+
+msgctxt "odt:account.invoice:"
+msgid "Draft Supplier Credit Note"
+msgstr "Esborrany d'abonament de proveïdor"
+
+msgctxt "odt:account.invoice:"
+msgid "Draft Supplier Invoice"
+msgstr "Esborrany de factura de proveïdor"
+
+msgctxt "odt:account.invoice:"
+msgid "E-Mail:"
+msgstr "Correu electrònic:"
+
+msgctxt "odt:account.invoice:"
+msgid "Invoice N°:"
+msgstr "Nº de factura:"
+
+msgctxt "odt:account.invoice:"
+msgid "Payment Term"
+msgstr "Termini de pagament"
+
+msgctxt "odt:account.invoice:"
+msgid "Phone:"
+msgstr "Telèfon:"
+
+msgctxt "odt:account.invoice:"
+msgid "Pro forma Credit Note"
+msgstr "Abonament pro forma"
+
+msgctxt "odt:account.invoice:"
+msgid "Pro forma Invoice"
+msgstr "Factura pro forma"
+
+msgctxt "odt:account.invoice:"
+msgid "Pro forma Supplier Credit Note"
+msgstr "Abonament de proveïdor pro forma"
+
+msgctxt "odt:account.invoice:"
+msgid "Pro forma Supplier Invoice"
+msgstr "Factura de proveïdor pro forma"
+
+msgctxt "odt:account.invoice:"
+msgid "Quantity"
+msgstr "Quantitat"
+
+msgctxt "odt:account.invoice:"
+msgid "Supplier Credit Note N°:"
+msgstr "Abonament de proveïdor Nº:"
+
+msgctxt "odt:account.invoice:"
+msgid "Supplier Invoice N°:"
+msgstr "Factura de proveïdor Nº:"
+
+msgctxt "odt:account.invoice:"
+msgid "Tax"
+msgstr "Impost"
+
+msgctxt "odt:account.invoice:"
+msgid "Taxes"
+msgstr "Impostos"
+
+msgctxt "odt:account.invoice:"
+msgid "Taxes:"
+msgstr "Impostos:"
+
+msgctxt "odt:account.invoice:"
+msgid "Total (excl. taxes):"
+msgstr "Total (sense impostos):"
+
+msgctxt "odt:account.invoice:"
+msgid "Total:"
+msgstr "Total:"
+
+msgctxt "odt:account.invoice:"
+msgid "Unit Price"
+msgstr "Preu unitari"
+
+msgctxt "odt:account.invoice:"
+msgid "VAT Number:"
+msgstr "NIF:"
+
+msgctxt "odt:account.invoice:"
+msgid "VAT:"
+msgstr "NIF:"
