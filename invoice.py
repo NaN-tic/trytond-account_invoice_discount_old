@@ -26,7 +26,8 @@ class InvoiceLine(ModelSQL, ModelView):
         return 0.0
 
     def on_change_with_amount(self, vals):
-        if vals.get('type') == 'line' and vals.get('discount'):
+        if vals.get('type') == 'line' and vals.get('discount') and \
+         vals.get('unit_price'):
             vals = vals.copy()
             vals['unit_price'] = (vals.get('unit_price') -
                 vals.get('unit_price') * vals.get('discount') * Decimal('0.01'))
