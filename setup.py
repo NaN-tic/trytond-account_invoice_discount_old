@@ -34,8 +34,7 @@ setup(name='trytond_account_invoice_discount',
     ],
     package_data={
         'trytond.modules.account_invoice_discount': info.get('xml', []) \
-                + info.get('translation', []) \
-                + ['invoice.odt',],
+                + info.get('translation', []),
     },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
