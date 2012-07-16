@@ -1,3 +1,4 @@
+Version 2.4.0 - 2012-07-16
 * Move invoice.odt report to account_invoice_discount_report
 * on_change_with_amount is available unit_price data
 * _on_change_lines_taxes: Force to Decimal discount field when is float + Continue when unit_price is None

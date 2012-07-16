@@ -5,7 +5,7 @@
     'name_ca_ES': 'Descomptes en factures',
     'name_de_DE': 'Fakturierung Rabatt',
     'name_es_ES': 'Descuentos en facturas',
-    'version': '2.1.3',
+    'version': '2.4.0',
     'author': 'virtual things',
     'email': 'info@virtual-things.biz',
     'website': 'http://www.virtual-things.biz/',
