@@ -1,4 +1,4 @@
-trytond_account_invoice_discount
+trytond-account_invoice_discount
 ================================
 
 Adds a discount field on invoice of Tryton.
