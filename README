@@ -2,7 +2,6 @@ trytond-account_invoice_discount
 ================================
 
 Adds a discount field on invoice of Tryton.
-See __tryton__.py
 
 Installing
 ----------

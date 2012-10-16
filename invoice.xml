@@ -42,7 +42,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                     <xpath
                         expr="/form/notebook/page[@id=&quot;general&quot;]/label[@name=&quot;unit&quot;]"
                         position="before">
-                        <newline/>
                         <label name="discount"/>
                         <field name="discount"/>
                     </xpath>

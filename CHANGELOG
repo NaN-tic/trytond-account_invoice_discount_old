@@ -1,3 +1,7 @@
+Version 2.6.0 - 2012-10-16
+* Active Record
+* Simplify module information with python configuration
+
 Version 2.4.0 - 2012-07-16
 * Move invoice.odt report to account_invoice_discount_report
 * on_change_with_amount is available unit_price data
