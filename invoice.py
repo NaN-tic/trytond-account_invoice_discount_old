@@ -1,11 +1,9 @@
 #This file is part account_invoice_discount module for Tryton.
 #The COPYRIGHT file at the top level of this repository contains 
 #the full copyright notices and license terms.
-import copy
 from decimal import Decimal
-from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import If, Not, Equal, Eval
-from trytond.transaction import Transaction
+from trytond.model import fields
+from trytond.pyson import Not, Equal, Eval
 from trytond.pool import Pool, PoolMeta
 
 __all__ = ['InvoiceLine']
