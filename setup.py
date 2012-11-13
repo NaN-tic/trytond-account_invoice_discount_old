@@ -33,14 +33,14 @@ setup(name='trytonzz_account_invoice_discount',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
-    download_url="https://bitbucket.org/zikzakmedia/trytonzz-account_invoice_discount",
-    package_dir={'trytonzz.modules.account_invoice_discount': '.'},
+    download_url="https://bitbucket.org/zikzakmedia/trytond-account_invoice_discount",
+    package_dir={'trytond.modules.account_invoice_discount': '.'},
     packages=[
-        'trytonzz.modules.account_invoice_discount',
-        'trytonzz.modules.account_invoice_discount.tests',
+        'trytond.modules.account_invoice_discount',
+        'trytond.modules.account_invoice_discount.tests',
     ],
     package_data={
-        'trytonzz.modules.account_invoice_discount': info.get('xml', []) \
+        'trytond.modules.account_invoice_discount': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
     },
     classifiers=[
@@ -65,9 +65,9 @@ setup(name='trytonzz_account_invoice_discount',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytonzz.modules]
-    account_invoice_discount = trytonzz.modules.account_invoice_discount
+    [trytond.modules]
+    account_invoice_discount = trytond.modules.account_invoice_discount
     """,
     test_suite='tests',
-    test_loader='trytonzz.test_loader:Loader',
+    test_loader='trytond.test_loader:Loader',
 )
