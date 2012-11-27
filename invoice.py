@@ -26,27 +26,13 @@ class InvoiceLine:
 
     def on_change_discount(self):
         res = {}
-        if self.discount == Decimal(0.0) and self.quantity is not None:
-            res['amount'] = Decimal(self.quantity) * self.unit_price
         if self.quantity and self.discount and self.unit_price \
             and self.type == 'line':
-            res['amount'] = Decimal(self.quantity) * (self.unit_price -
+            res['unit_price'] = Decimal(self.quantity) * (self.unit_price -
                 self.unit_price * self.discount * Decimal('0.01'))
         return res
 
     def on_change_product(self):
         res = super(InvoiceLine, self).on_change_product()
         res['discount'] = Decimal(0.0)
-        return res
-
-    def get_amount(self, name):
-        Currency = Pool().get('currency.currency')
-        res = super(InvoiceLine, self).get_amount(name)
-        if self.type == 'line':
-            currency = self.invoice and self.invoice.currency \
-                    or self.currency
-            res = Currency.round(currency,
-                Decimal(str(self.quantity)) * self.unit_price -
-                (Decimal(str(self.quantity)) * self.unit_price *
-                (self.discount * Decimal('0.01'))))
         return res
