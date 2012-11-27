@@ -28,7 +28,7 @@ class InvoiceLine:
         res = {}
         if self.quantity and self.discount and self.unit_price \
             and self.type == 'line':
-            res['unit_price'] = Decimal(self.quantity) * (self.unit_price -
+            res['unit_price'] = (self.unit_price -
                 self.unit_price * self.discount * Decimal('0.01'))
         return res
 
