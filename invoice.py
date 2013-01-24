@@ -22,7 +22,7 @@ class InvoiceLine:
 
     @staticmethod
     def default_discount():
-        return Decimal(0.0)
+        return Decimal('0.0')
 
     def on_change_discount(self):
         res = {}
@@ -34,5 +34,5 @@ class InvoiceLine:
 
     def on_change_product(self):
         res = super(InvoiceLine, self).on_change_product()
-        res['discount'] = Decimal(0.0)
+        res['discount'] = Decimal('0.0')
         return res
