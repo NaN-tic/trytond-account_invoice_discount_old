@@ -7,8 +7,8 @@ Descuentos en facturas
 
 El descuento se aplica al *Precio Unidad* de cada producto.
 
-Módulos que dependen
-====================
+Módulos de los que depende
+==========================
 
 Instalados
 ----------
