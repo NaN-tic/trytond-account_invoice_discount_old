@@ -7,5 +7,6 @@ from invoice import *
 
 def register():
     Pool.register(
+        Invoice,
         InvoiceLine,
         module='account_invoice_discount', type_='model')

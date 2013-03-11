@@ -5,9 +5,46 @@ from decimal import Decimal
 from trytond.model import fields
 from trytond.pyson import Not, Equal, Eval
 from trytond.pool import Pool, PoolMeta
+from trytond.transaction import Transaction
 
-__all__ = ['InvoiceLine']
+__all__ = ['Invoice', 'InvoiceLine']
 __metaclass__ = PoolMeta
+
+
+class Invoice:
+    'Invoice Line'
+    __name__ = 'account.invoice'
+
+    def _compute_taxes(self):
+        '''
+        Get taxes from amount, not unit_price
+        Price + discount is amount field; Unit Price is origin price
+        _compute_taxes in account_invoice get taxes from unit_price
+        '''
+        Tax = Pool().get('account.tax')
+
+        context = self.get_tax_context()
+
+        res = {}
+        for line in self.lines:
+            # Don't round on each line to handle rounding error
+            if line.type != 'line':
+                continue
+            with Transaction().set_context(**context):
+                taxes = Tax.compute(line.taxes, line.amount,
+                        line.quantity)
+            for tax in taxes:
+                key, val = self._compute_tax(tax, self.type)
+                val['invoice'] = self.id
+                if not key in res:
+                    res[key] = val
+                else:
+                    res[key]['base'] += val['base']
+                    res[key]['amount'] += val['amount']
+        for key in res:
+            for field in ('base', 'amount'):
+                res[key][field] = self.currency.round(res[key][field])
+        return res
 
 
 class InvoiceLine:
@@ -28,11 +65,23 @@ class InvoiceLine:
         res = {}
         if self.quantity and self.discount and self.unit_price \
             and self.type == 'line':
-            res['unit_price'] = (self.unit_price -
+            res['amount'] = (self.unit_price -
                 self.unit_price * self.discount * Decimal('0.01'))
         return res
-
+    
     def on_change_product(self):
         res = super(InvoiceLine, self).on_change_product()
         res['discount'] = Decimal('0.0')
+        return res
+
+    def get_amount(self, name):
+        Currency = Pool().get('currency.currency')
+        res = super(InvoiceLine, self).get_amount(name)
+        if self.type == 'line':
+            currency = self.invoice and self.invoice.currency \
+                    or self.currency
+            res = Currency.round(currency,
+                Decimal(str(self.quantity)) * self.unit_price -
+                (Decimal(str(self.quantity)) * self.unit_price *
+                (self.discount * Decimal('0.01'))))
         return res
