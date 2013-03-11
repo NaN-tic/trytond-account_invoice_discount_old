@@ -30,8 +30,12 @@ class Invoice:
             # Don't round on each line to handle rounding error
             if line.type != 'line':
                 continue
+            unit_price = line.unit_price
+            if line.discount and line.discount is not None:
+                unit_price =  unit_price - (
+                    line.unit_price * (line.discount * Decimal('0.01')))
             with Transaction().set_context(**context):
-                taxes = Tax.compute(line.taxes, line.amount,
+                taxes = Tax.compute(line.taxes, unit_price,
                         line.quantity)
             for tax in taxes:
                 key, val = self._compute_tax(tax, self.type)
