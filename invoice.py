@@ -89,3 +89,10 @@ class InvoiceLine:
                 (Decimal(str(self.quantity)) * self.unit_price *
                 (self.discount * Decimal('0.01'))))
         return res
+
+    def _compute_taxes(self):
+        if self.discount:
+            self.unit_price = self.unit_price - (
+                self.unit_price * (self.discount * Decimal('0.01')))
+        res = super(InvoiceLine, self)._compute_taxes()
+        return res
