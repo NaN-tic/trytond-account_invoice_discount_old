@@ -17,9 +17,7 @@ class Invoice:
 
     def _compute_taxes(self):
         '''
-        Get taxes from amount, not unit_price
-        Price + discount is amount field; Unit Price is origin price
-        _compute_taxes in account_invoice get taxes from unit_price
+        Get taxes unit_price - discount
         '''
         Tax = Pool().get('account.tax')
 
