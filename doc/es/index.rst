@@ -2,21 +2,10 @@
 Descuentos en facturas
 ======================
 
-* Define descuentos para líneas de ventas
-* Añade campo descuento al tiquet de venta
+En las líneas de la factura podemos añadir un valor fijo para aplicar un descuento.
+El descuento se calcula:
 
-El descuento se aplica al *Precio Unidad* de cada producto.
-
-Módulos de los que depende
-==========================
-
-Instalados
-----------
-
-.. toctree::
-   :maxdepth: 1
-
-   /account_invoice/index
+Cantidad * precio - (cantidad * precio * (desuento * 0.01))
 
 Dependencias
 ------------
