@@ -6,10 +6,3 @@ En las líneas de la factura podemos añadir un valor fijo para aplicar un descu
 El descuento se calcula:
 
 Cantidad * precio - (cantidad * precio * (desuento * 0.01))
-
-Dependencias
-------------
-
-* Facturación_
-
-.. _Facturación: ../account_invoice/index.html
