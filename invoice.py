@@ -71,7 +71,7 @@ class InvoiceLine:
             res['amount'] = Decimal(str(self.quantity)) * (self.unit_price -
                 self.unit_price * self.discount * Decimal('0.01'))
         return res
-    
+
     def on_change_product(self):
         res = super(InvoiceLine, self).on_change_product()
         res['discount'] = Decimal('0.0')
@@ -94,4 +94,10 @@ class InvoiceLine:
             self.unit_price = self.unit_price - (
                 self.unit_price * (self.discount * Decimal('0.01')))
         res = super(InvoiceLine, self)._compute_taxes()
+        return res
+
+    def _credit(self):
+        res = super(InvoiceLine, self)._credit()
+        if self.discount:
+            res['discount'] = self.discount
         return res
